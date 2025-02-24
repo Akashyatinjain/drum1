@@ -1,10 +1,19 @@
 for(var i=0;i<document.querySelectorAll(".drum").length;i++){
 
+document.querySelectorAll(".drum")[i].addEventListener("click",function (){   //HANDLER() "()" WILL CAUSE THE DIRECT ALERT NOT ON CLICKING ON THE BUTTON  //ANYNOMUS FUNCTION
+        var BUTTON= this.innerHTML;
+        makeSound(BUTTON);
+        buttonAnimation(BUTTON);
 
+});
 
-document.querySelectorAll(".drum")[i].addEventListener("click",function (){  //HANDLER() "()" WILL CAUSE THE DIRECT ALERT NOT ON CLICKING ON THE BUTTON  //ANYNOMUS FUNCTION
-    var drum= this.innerHTML;
-   switch (drum) {
+    var hello =document.addEventListener("keydown",function(drum){
+        makeSound(drum.key);
+        buttonAnimation(drum.key);
+    });
+
+    function makeSound(key){
+   switch (key) {
     case "w":
         var audio = new Audio("./sounds/crash.mp3")
         audio.play();
@@ -38,7 +47,13 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function (){  //H
         break;
    }
    
+};
     
-})
-
+function buttonAnimation(currentkey){
+        var heading = document.querySelector("." + currentkey);
+        heading.classList.add("pressed");
+       setTimeout(function(){
+        heading.classList.remove("pressed");
+       },100);//in secs
+}
 }
