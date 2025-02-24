@@ -10,9 +10,9 @@ h1 {
   text-shadow: 3px 0 #DA0463;
 
 }
-button:active{
+ button:active{
 border-color: gray
-}
+} 
 
 footer {
   color: #DBEDF3;
